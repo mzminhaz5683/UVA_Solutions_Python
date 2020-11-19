@@ -1,3 +1,4 @@
+'''UVA :: 10055 - Hashmat the Brave Warrior'''
 while True:
     try:
         scan1, scan2 = input().split()

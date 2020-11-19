@@ -1,3 +1,4 @@
+'''UVA :: 100 - The 3n + 1 problem'''
 def cycle_finder(x):
     c = 0
     while x >= 1:

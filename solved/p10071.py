@@ -1,3 +1,4 @@
+'''UVA :: 10071 - Back to High School Physics'''
 while True:
     try:
         scan1, scan2 = input().split()

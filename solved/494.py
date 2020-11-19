@@ -1,3 +1,5 @@
+'''UVA :: 494 - Kindergarten Counting Game'''
+
 def counter(string):
     words = string.split()
     counter = 0

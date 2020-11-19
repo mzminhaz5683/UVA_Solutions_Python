@@ -1,3 +1,4 @@
+'''UVA :: 10300 - Ecological Premium'''
 max = 100000
 try:
     n = int(input())
