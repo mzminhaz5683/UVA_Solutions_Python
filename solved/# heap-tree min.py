@@ -1,4 +1,4 @@
-raw_array = [0,7,5,4,3,7,6,5,1]
+raw_array = [7,5,4,3,7,6,5,1]
 
 def child_finder(array, parent):
     left = parent * 2
@@ -9,7 +9,7 @@ def child_finder(array, parent):
         right = None
     return left, right
     
-
+# min heap
 def heap_tree(array, parent):
     left, right = child_finder(array, parent)
     smallest = parent
@@ -24,9 +24,11 @@ def heap_tree(array, parent):
         array = heap_tree(array, smallest)
     return array
 
-array = [i for i in raw_array]
+
+array = [0]+[i for i in raw_array]
 for i in range(len(array)//2, 0, -1):
     array = heap_tree(array, i)
 
+array.pop(0)
 print(raw_array)
 print(array)
