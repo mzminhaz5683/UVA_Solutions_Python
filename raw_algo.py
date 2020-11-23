@@ -8,6 +8,10 @@ start = time.time()
 
 
 
+array = [i for i in raw_array]
+sorted_array = name(array)
 
+print(raw_array)
+print(sorted_array)
 
 print('\nRun Time : {0:.10f}'.format(time.time() - start))
