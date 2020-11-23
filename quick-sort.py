@@ -1,7 +1,5 @@
-raw_array = [3,4,1,5,1,2,7,8,9,10,4,6,22,17,16,13,18, 26, 25, 24, 21, 4,5,6,7,12,11,10,9,6]
-#raw_array = [3,4,1,5,1,2]
-import time
-start = time.time()
+raw_array = [3,4,1,5,1,2,7,8,9,10,4,6,22,17,16,13,18, 26, 25, 24, 21]
+#raw_array = [2,4,1,5,1,2]
 
 def quick_sort(array):
     pivort = len(array)-1
@@ -22,9 +20,8 @@ def quick_sort(array):
 
 
 array = [i for i in raw_array]
-sorted_array = quick_sort(array)
 
 print(raw_array)
-print(sorted_array)
+sorted_array = quick_sort(array)
 
-print('\nRun Time : {0:.10f}'.format(time.time() - start))
+print(sorted_array)

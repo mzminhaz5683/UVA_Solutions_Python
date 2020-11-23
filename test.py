@@ -1,32 +1,59 @@
-raw_array = [0,7,5,4,3,7,6,5,1]
+linear_search = 0
+binary_search = 0
+selction_sort = 1
 
-def child_finder(array, parent):
-    left = parent * 2
-    right = parent * 2 + 1
-    if (len(array) <= left):
-        left = None
-    if (len(array) <= right):
-        right = None
-    return left, right
-    
+raw_array = [2,4,5,1,6,9,0,12,7]
+target = 0
 
-def heap_tree(array, parent):
-    left, right = child_finder(array, parent)
-    smallest = parent
+if linear_search:
+    def linear_search_function(array, target):
+        for i in range(0, len(array)):
+            if (array[i] == target):
+                return i
+        return None
 
-    if left and array[smallest] > array[left]:
-        smallest = left
-    if right and array[smallest] > array[right]:
-        smallest = right
+    array = [i for i in raw_array]
+    print('array : ',raw_array, '\nTarget : ',target, '\nResult : ',linear_search_function(array, target))
 
-    if smallest != parent:
-        array[parent], array[smallest] = array[smallest], array[parent]
-        array = heap_tree(array, smallest)
-    return array
+if binary_search:
+    def binary_search_function(array, target):
+        i = -1
+        max_index = len(array)-1
+        while (i<(max_index-i)+1):
+            i += 1
+            #print('i = ', i)
+            for j in range(0, max_index-i): # goes to (max_index-i)-1
+                if array[j] > array[j+1]:
+                    array[j], array[j+1] = array[j+1], array[j]
+        print('Sort  : ', array)
 
-array = [i for i in raw_array]
-for i in range(len(array)//2, 0, -1):
-    array = heap_tree(array, i)
+        min_index = 0
+        max_index = len(array)-1
+        while min_index < max_index:
+            mid_index = (min_index+max_index)//2
+            if (target == array[mid_index]):
+                return mid_index
+            elif (target < array[mid_index]):
+                max_index = mid_index
+            elif (target >= array[mid_index]):
+                min_index = mid_index
+        return None
 
-print(raw_array)
-print(array)
+    array = [i for i in raw_array]
+    print('array : ',raw_array)
+    print('Target : ',target, '\nResult : ',binary_search_function(array, target))
+
+if selction_sort:
+    def selction_sort_function(array):
+        for i in range(0, len(array)-1):
+            smallest = i
+            for j in range(i+1, len(array)):
+                if array[j] < array[smallest]:
+                    smallest = j
+            if (smallest != i):
+                array[smallest], array[i] = array[i], array[smallest]
+        return array
+
+    array = [i for i in raw_array]
+    print('array : ',raw_array)
+    print('Sort  : ',selction_sort_function(array))
